@@ -1,0 +1,141 @@
+* {
+   box-sizing: border-box;
+   padding: 0;
+   margin: 0;
+}
+
+h1 {
+   text-align: center;
+   font-size: 50px;
+   line-height: normal;
+}
+
+body {
+   display: grid;
+   grid-template-columns: 1fr;
+   grid-template-rows: 1fr;
+   align-items: center;
+   height: 100vh;
+}
+
+.container {
+   width: 100%;
+   max-width: 550px;
+   margin: 0 auto;
+}
+
+.todo {
+   &__wrapper {
+      margin-top: 60px;
+   }
+
+   &__input-task {
+      display: flex;
+      justify-content: space-between;
+      column-gap: 10px;
+      margin: 0 auto;
+      filter: drop-shadow(5px 5px 5px #4b4b4b);
+
+      input {
+         flex: 1 1 auto;
+         padding: 0 15px;
+         outline: none;
+         font-size: 18px;
+         line-height: 35px;
+      }
+
+      button {
+         flex: 0 1 100px;
+         padding: 5px;
+         font-size: 16px;
+         cursor: pointer;
+      }
+   }
+
+   &__results {
+      margin-top: 30px;
+      height: 300px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+
+      &::-webkit-scrollbar {
+         background-color: transparent;
+         width: 10px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+         border-radius: 5px;
+         background-color: rgb(80, 80, 80);
+      }
+
+      li {
+         position: relative;
+         font-size: 26px;
+         list-style-type: none;
+         padding: 10px 35px;
+         cursor: pointer;
+         transition: background-color 0.2s;
+
+         &:nth-child(odd) {
+            background-color: #dfdfdf;
+         }
+
+         &:nth-child(even) {
+            background-color: #f7f7f7;
+         }
+
+         &:hover {
+            background-color: #b7b7b7;
+         }
+      }
+
+      li.checked {
+         background-color: #8d8d8d;
+         color: #ffffff;
+         text-decoration: line-through;
+
+         &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 8px;
+            transform: translateY(-65%) rotate(-45deg);
+            width: 16px;
+            height: 8px;
+            border-left: 2px solid #ffffff;
+            border-bottom: 2px solid #ffffff;
+         }
+
+         .todo__close-btn {
+            svg {
+               fill: #ffffff;
+            }
+         }
+      }
+   }
+
+   &__close-btn {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      //background: url("/img/x-lg.svg") center center/35% no-repeat;
+      width: 50px;
+      height: 100%;
+      cursor: pointer;
+      transition: background-color 0.2s;
+
+      svg {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         width: 30%;
+         height: 30%;
+      }
+
+      &:hover {
+         background-color: #f89797;
+      }
+   }
+}
