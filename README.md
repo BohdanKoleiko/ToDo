@@ -1,5 +1,5 @@
 # ToDo list
-<img alt="visual example of the To Do list" src="https://github.com/HamaHs/ToDo/assets/45846647/deed217d-f4f9-4733-8a6c-179ab838e2bc">
+<img width="960" alt="visual example of the To Do list" src="https://github.com/HamaHs/ToDo/assets/45846647/deed217d-f4f9-4733-8a6c-179ab838e2bc">
 
 
 It's a simple project. This project is just a To Do list to practice JS.</br>
