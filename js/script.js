@@ -1,18 +1,19 @@
-'use strict'
+"use strict";
 
-document.addEventListener('DOMContentLoaded', () => {
-   const todoInputTask = document.querySelector('.todo__input-task');
-   const ul = document.querySelector('.todo__results');
+document.addEventListener("DOMContentLoaded", () => {
+   const todoInputTask = document.querySelector(".todo__input-task");
+   const ul = document.querySelector(".todo__results");
 
-   // the input where a user writes him/her task
-   const input = todoInputTask.querySelector('input');
-   // the btn that adds task the user have written
-   const addTaskBtn = todoInputTask.querySelector('button');
+   // Input where a user writes his/her tasks
+   const input = todoInputTask.querySelector("input");
+
+   // Button adds task that a user have written
+   const addTaskBtn = todoInputTask.querySelector("button");
 
    const addTask = function () {
       if (input.value) {
-         const createLi = document.createElement('li');
-         const createSpan = document.createElement('span');
+         const createLi = document.createElement("li");
+         const createSpan = document.createElement("span");
          createSpan.innerText = input.value;
          createLi.innerHTML = `
          <span class='todo__close-btn'>
@@ -25,42 +26,41 @@ document.addEventListener('DOMContentLoaded', () => {
          `;
          createLi.prepend(createSpan);
          ul.append(createLi);
-         input.value = '';
+         input.value = "";
 
          removeTask();
       }
-   }
+   };
 
    function removeTask() {
-      let removeTaskBtns = document.querySelectorAll('.todo__close-btn');
+      let removeTaskBtns = document.querySelectorAll(".todo__close-btn");
 
       removeTaskBtns.forEach((btn, i) => {
-         btn.addEventListener('click', () => {
+         btn.addEventListener("click", () => {
             btn.parentElement.remove();
          });
       });
    }
 
    function listItemsCheck() {
-      ul.addEventListener('click', function (e) {
+      ul.addEventListener("click", function (e) {
          let target = e.target;
 
-         if (target.tagName === 'LI') {
-            target.classList.toggle('checked');
-         } else if (target.tagName === 'SPAN') {
-            target.parentElement.classList.toggle('checked');
+         if (target.tagName === "LI") {
+            target.classList.toggle("checked");
+         } else if (target.tagName === "SPAN") {
+            target.parentElement.classList.toggle("checked");
          }
       });
    }
 
-
-   addTaskBtn.addEventListener('click', addTask);
-   document.addEventListener('keypress', (e) => {
-      if (e.code.toLowerCase() === 'enter') {
+   addTaskBtn.addEventListener("click", addTask);
+   document.addEventListener("keypress", (e) => {
+      if (e.code.toLowerCase() === "enter") {
          addTask();
       }
    });
 
    removeTask();
    listItemsCheck();
-});        
+});
